@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.teamfive.project.repository.UserRepository;
+
 @Entity
 public class User {
 
@@ -22,9 +26,6 @@ public class User {
 	
 	@OneToOne
 	private Menu menu;
-	
-	@OneToMany(mappedBy = "user")
-	private List<Branch> branch;
 	
 	@OneToMany(mappedBy = "user")
 	private List<FoodOrder> foodorders;
@@ -77,13 +78,6 @@ public class User {
 		this.menu = menu;
 	}
 
-	public List<Branch> getBranch() {
-		return branch;
-	}
-
-	public void setBranch(List<Branch> branch) {
-		this.branch = branch;
-	}
 
 	public List<FoodOrder> getFoodorders() {
 		return foodorders;

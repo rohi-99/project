@@ -20,7 +20,20 @@ public class Item {
 	
 	@ManyToOne
 	@JoinColumn
-	FoodOrder foodorder;
+	private FoodOrder foodorder;
+	
+	@ManyToOne
+	@JoinColumn
+	private Menu menu;
+	
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
 
 	public int getId() {
 		return id;
@@ -69,6 +82,7 @@ public class Item {
 	public void setFoodorder(FoodOrder foodorder) {
 		this.foodorder = foodorder;
 	}
+	
 	
 	
 }

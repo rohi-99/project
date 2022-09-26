@@ -17,11 +17,7 @@ public class Menu {
 	private int id;
 	
 	@OneToMany(mappedBy = "menu")
-	List<FoodProduct> foodProducts;
-	
-	@OneToOne
-	@JoinColumn
-	User user;
+	private List<FoodProduct> foodProducts;
 
 	public int getId() {
 		return id;
@@ -39,12 +35,6 @@ public class Menu {
 		this.foodProducts = foodProducts;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 	
 }
