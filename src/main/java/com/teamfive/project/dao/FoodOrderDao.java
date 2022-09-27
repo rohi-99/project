@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.teamfive.project.dto.FoodOrder;
+import com.teamfive.project.dto.User;
 import com.teamfive.project.repository.FoodOrderRepository;
 
 
@@ -20,14 +21,10 @@ public class FoodOrderDao {
 		return repository.save(foodOrder);
 	}
 	
-	public FoodOrder updateFoodOrder(FoodOrder foodOrder) {
-		return repository.save(foodOrder);
-	}
 	
-	public FoodOrder deleteFoodOrder(int id) {
+	public void deleteFoodOrder(int id) {
 		FoodOrder FoodOrder= getFoodOrderById(id);
 		repository.delete(FoodOrder);
-		return FoodOrder;
 	}
 	
 	public FoodOrder getFoodOrderById(int id) {
@@ -35,5 +32,11 @@ public class FoodOrderDao {
 	}
 	public List<FoodOrder> findAllFoodOrder(){
 		return repository.findAll();
+	}
+	
+	public FoodOrder updateFoodOrder(FoodOrder foodOrder,int id) {
+		foodOrder.setId(id);
+		return repository.save(foodOrder);
+		
 	}
 }

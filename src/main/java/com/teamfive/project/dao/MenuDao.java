@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.teamfive.project.dto.Menu;
+import com.teamfive.project.dto.User;
 import com.teamfive.project.repository.MenuRepository;
 
 
@@ -19,14 +20,13 @@ public class MenuDao {
 		return repository.save(menu);
 	}
 	
-	public Menu updateManu(Menu menu) {
-		return repository.save(menu);
-	}
+//	public Menu updateManu(Menu menu) {
+//		return repository.save(menu);
+//	}
 	
-	public Menu deleteMenu(int id) {
+	public void deleteMenu(int id) {
 		Menu menu = getMenuById(id);
 		repository.delete(menu);
-		return menu;
 	}
 	
 	public Menu getMenuById(int id) {
@@ -34,5 +34,11 @@ public class MenuDao {
 	}
 	public List<Menu> findAllMenu(){
 		return repository.findAll();
+	}
+	
+	public Menu updateMenu(Menu menu,int id) {
+		menu.setId(id);
+		return repository.save(menu);
+		
 	}
 }

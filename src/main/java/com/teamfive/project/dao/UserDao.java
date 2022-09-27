@@ -15,14 +15,14 @@ public class UserDao {
 	@Autowired
 	private UserRepository repository;
 	
+	
 	public User saveUser(User user) {
 		return repository.save(user);
 	}
 	
-	public User deleteUser(int id) {
+	public void deleteUser(int id) {
 		User user = getUserById(id);
 		repository.delete(user);
-		return user;
 	}
 	
 	public User getUserById(int id) {
@@ -32,4 +32,12 @@ public class UserDao {
 	public List<User> findAllUser(){
 		return repository.findAll();
 	}
+	
+	public User updateUser(User user,int id) {
+		user.setId(id);
+		return repository.save(user);
+		
+	}
+	
+	
 }
