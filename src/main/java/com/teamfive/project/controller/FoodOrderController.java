@@ -22,12 +22,12 @@ public class FoodOrderController {
 	FoodOrderService service;
 	
 	@PostMapping("/savefoodorder")
-	public FoodOrder savefoodOrder(@RequestBody FoodOrder foodOrder) {
+	public FoodOrder saveFoodOrder(@RequestBody FoodOrder foodOrder) {
 		return service.saveFoodOrder(foodOrder);
 	}
 	
 	@DeleteMapping("deletefoodorder")
-	public String deleteAdmin(@RequestParam int id) {
+	public String deleteFoodOrder(@RequestParam int id) {
 		return service.deleteFoodOrder(id);
 	}
 	
