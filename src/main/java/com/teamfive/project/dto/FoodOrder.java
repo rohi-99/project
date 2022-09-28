@@ -2,7 +2,9 @@ package com.teamfive.project.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class FoodOrder {
@@ -23,7 +28,7 @@ public class FoodOrder {
 	private String customerName;
 	private String contactNumber;
 	
-	@OneToMany(mappedBy = "foodorder")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "foodorder",fetch = FetchType.LAZY)
 	private List<Item> item;
 	
 	@ManyToOne
@@ -86,7 +91,8 @@ public class FoodOrder {
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
-
+	
+	@JsonManagedReference
 	public List<Item> getItem() {
 		return item;
 	}
@@ -95,6 +101,7 @@ public class FoodOrder {
 		this.item = item;
 	}
 
+	@JsonBackReference
 	public User getUser() {
 		return user;
 	}

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Item {
 	
@@ -22,18 +24,18 @@ public class Item {
 	@JoinColumn
 	private FoodOrder foodorder;
 	
-	@ManyToOne
-	@JoinColumn
-	private Menu menu;
+//	@ManyToOne
+//	@JoinColumn
+//	private Menu menu;
 	
 
-	public Menu getMenu() {
-		return menu;
-	}
-
-	public void setMenu(Menu menu) {
-		this.menu = menu;
-	}
+//	public Menu getMenu() {
+//		return menu;
+//	}
+//
+//	public void setMenu(Menu menu) {
+//		this.menu = menu;
+//	}
 
 	public int getId() {
 		return id;
@@ -75,6 +77,7 @@ public class Item {
 		this.quantity = quantity;
 	}
 
+	@JsonBackReference
 	public FoodOrder getFoodorder() {
 		return foodorder;
 	}
