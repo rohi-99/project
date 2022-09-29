@@ -1,0 +1,60 @@
+<div class="container">
+    <h3>Add Food Product</h3>
+    <form #editData="ngForm" (ngSubmit)="addProduct(editData)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="name"
+          name="name" 
+          #name="ngModel"
+          placeholder="Enter the name of food"
+          >
+          
+          <label for="type">Type</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="type"
+          name="type" 
+          #type="ngModel"
+          placeholder="Specify the type of food"
+          >
+
+          <label for="about">About</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="about"
+          name="about" 
+          #about="ngModel"
+          placeholder="Food Info"
+          >
+
+          <label for="availability">Availability</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="availability"
+          name="availability" 
+          #availability="ngModel"
+          placeholder="yes/no"
+          >
+
+          <label for="price">Price</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="price"
+          name="price" 
+          #price="ngModel"
+          placeholder="Specify the price of the Food Product"
+          >
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+

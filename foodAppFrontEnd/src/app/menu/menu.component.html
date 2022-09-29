@@ -1,0 +1,34 @@
+<div class="container">
+    <h3>Manager's Menu</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">About</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Price</th>
+                <th scope="col">Update Food Products</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of menuData[0].foodProducts">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.type}}</td>
+                <td>{{i.about}}</td>
+                <td>{{i.availability}}</td>
+                <td>{{i.price}}</td>
+                <td><button class="btn btn-primary" [routerLink]="['/edit-menu/',i.id]">Update</button></td>
+                <td><button class="btn btn-secondary" (click)="deleteProduct(i.id)">Delete</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+    
+</div>
+<div style="text-align: center;">
+    <button class="btn btn-primary" routerLink="/add-foodProduct">Add New Product</button>
+</div>

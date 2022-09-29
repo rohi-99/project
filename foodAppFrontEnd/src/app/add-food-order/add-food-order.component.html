@@ -1,0 +1,29 @@
+<div class="container">
+    <h3>Enter Customer details</h3>
+    <form #data="ngForm" (ngSubmit)="createFoodOrder(data)">
+        <div class="form-group">
+          <label for="customerName">Customer Name</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="customerName"
+          name="customerName" 
+          #customerName="ngModel"
+          placeholder="Enter Customer Name"
+          >
+          
+          <label for="contactNumber">Contact</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="contactNumber"
+          name="contactNumber" 
+          #contactNumber="ngModel"
+          placeholder="Enter Contact Number"
+          >
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary" >Add Items</button>
+      </form>
+</div>

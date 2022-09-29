@@ -1,0 +1,59 @@
+<div class="container">
+    <h3>Edit Food Product</h3>
+    <form #editData="ngForm" (ngSubmit)="editProduct(editData)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="name"
+          name="name" 
+          #name="ngModel"
+          [ngModel]="selectedProduct.name"
+          >
+          
+          <label for="type">Type</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="type"
+          name="type" 
+          #type="ngModel"
+          [ngModel]="selectedProduct.type"
+          >
+
+          <label for="about">About</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="about"
+          name="about" 
+          #about="ngModel"
+          [ngModel]="selectedProduct.about"
+          >
+
+          <label for="availability">Availability</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="availability"
+          name="availability" 
+          #availability="ngModel"
+          [ngModel]="selectedProduct.availability"
+          >
+
+          <label for="price">Price</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="price"
+          name="price" 
+          #price="ngModel"
+          [ngModel]="selectedProduct.price"
+          >
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
