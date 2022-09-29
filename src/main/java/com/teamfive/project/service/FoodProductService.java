@@ -18,12 +18,17 @@ public class FoodProductService {
 	public FoodProduct saveFoodProduct(FoodProduct foodProducts) {
 	   return dao.saveFoodProduct(foodProducts);
 	}
-	public String deleteFoodProduct(int id) {
-	   dao.deleteFoodProduct(id);
-	   return "Food product "+id+" Deleted";
+	public FoodProduct deleteFoodProduct(int id) {
+	   return dao.deleteFoodProduct(id);
+//	   return "Food product "+id+" Deleted";
 	}
 	public List<FoodProduct> findAllFoodProduct(){
 		return dao.findAllFoodProduct();
+		
+	}
+	
+	public FoodProduct findbyId(int id) {
+		return dao.getFoodProductById(id);
 	}
 	
 	public FoodProduct updateFoodProduct(FoodProduct updatedFoodProduct, int id) {

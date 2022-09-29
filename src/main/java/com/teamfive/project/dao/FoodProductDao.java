@@ -19,9 +19,10 @@ public class FoodProductDao {
 		return repository.save(foodProduct);
 	}
 	
-	public void deleteFoodProduct(int id) {
+	public FoodProduct deleteFoodProduct(int id) {
 		FoodProduct foodProduct = getFoodProductById(id);
 		repository.delete(foodProduct);
+		return foodProduct;
 	}
 	
 	public FoodProduct getFoodProductById(int id) {
