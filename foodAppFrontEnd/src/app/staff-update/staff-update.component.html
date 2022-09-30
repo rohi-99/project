@@ -1,0 +1,30 @@
+<div class="container">
+    <h3>Edit Food Product</h3>
+    <form *ngIf="selectedUser" #editData="ngForm" (ngSubmit)="editUser(editData)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+          class="form-control"
+          ngModel 
+          id="name"
+          name="name" 
+          #name="ngModel"
+          [ngModel]="selectedUser.name"
+          >
+          
+          <label for="email">Email</label>
+          <input type="email" 
+          class="form-control"
+          ngModel 
+          id="email"
+          name="email" 
+          #email="ngModel"
+          [ngModel]="selectedUser.email"
+          >
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+

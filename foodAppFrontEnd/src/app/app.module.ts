@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { StaffMenuComponent } from './staff-menu/staff-menu.component';
 import { AddFoodProductComponent } from './add-food-product/add-food-product.component';
 import { AddFoodOrderComponent } from './add-food-order/add-food-order.component';
+import { StaffDetailComponent } from './staff-detail/staff-detail.component';
+import { StaffUpdateComponent } from './staff-update/staff-update.component';
+import { StaffCreateComponent } from './staff-create/staff-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { AddFoodOrderComponent } from './add-food-order/add-food-order.component
     EditMenuComponent,
     StaffMenuComponent,
     AddFoodProductComponent,
-    AddFoodOrderComponent
+    AddFoodOrderComponent,
+    StaffDetailComponent,
+    StaffUpdateComponent,
+    StaffCreateComponent
   ],
   imports: [
     BrowserModule,

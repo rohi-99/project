@@ -3,26 +3,28 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">About</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
-
+                <th scope="col">Add</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="staffMenuData">
             <tr *ngFor="let i of staffMenuData[0].foodProducts | menuFilter">
-                <td>{{i.id}}</td>
                 <td>{{i.name}}</td>
                 <td>{{i.type}}</td>
                 <td>{{i.about}}</td>
                 <td>{{i.price}}</td>
-                <input type="text" style="margin: 10px;" ngModel id="quantity" name="quantity" #quantity="ngModel"
+                <input type="text" style="margin-top: 10px;" ngModel id="quantity" name="quantity" #quantity="ngModel"
                     placeholder="Enter Quantity">
-                <td><button class="btn btn-secondary" (click)="addItem(i.id,quantity)">Add Item</button></td>
+                <td><button class="btn btn-primary" (click)="addItem(i.id,quantity)">Add Item</button></td>
+                <!-- <td><button class="btn btn-secondary" (click)="removeItem()">Remove Item</button></td> -->
             </tr>
         </tbody>
     </table>
+</div>
+<div style="text-align: center;" *ngIf="staffMenuData">
+    <button class="btn btn-success" (click)="updateOrder()">Confirm Order</button>
 </div>

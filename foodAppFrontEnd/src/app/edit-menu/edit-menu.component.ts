@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuServiceService } from '../Services/menu-service.service';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-menu',
@@ -12,7 +12,7 @@ export class EditMenuComponent implements OnInit {
   selectedProduct: any;
   result: any;
   body: any;
-  constructor(private menuService: MenuServiceService, private route: ActivatedRoute) { }
+  constructor(private menuService: MenuServiceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
@@ -44,7 +44,7 @@ export class EditMenuComponent implements OnInit {
     }
     this.menuService.updateMenu(this.selectedProduct.id, this.body).subscribe((data) => {
       console.log(data);
-
+      this.router.navigate(["menu"]);
     })
   }
 }

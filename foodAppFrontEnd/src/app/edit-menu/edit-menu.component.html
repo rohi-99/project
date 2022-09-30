@@ -1,6 +1,6 @@
 <div class="container">
     <h3>Edit Food Product</h3>
-    <form #editData="ngForm" (ngSubmit)="editProduct(editData)">
+    <form *ngIf="selectedProduct" #editData="ngForm" (ngSubmit)="editProduct(editData)">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" 

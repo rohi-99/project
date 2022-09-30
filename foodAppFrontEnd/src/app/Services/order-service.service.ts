@@ -13,8 +13,18 @@ export class OrderServiceService {
   }
 
   saveItem(body:any){
-    console.log("body----------",body);
-    
     return this.http.post("http://localhost:8080/saveitem",body);
+  }
+
+  getFoodOrderById(id:any){
+    return this.http.get(`http://localhost:8080/getFoodOrderById/${id}`);
+  }
+
+  updateFoodOrder(id:any,body:any){
+    return this.http.put(`http://localhost:8080/foodorder/${id}`,body);
+  }
+
+  deleteItem(id:any){
+    return this.http.delete(`http://localhost:8080/deleteitem/${id}`);
   }
 }

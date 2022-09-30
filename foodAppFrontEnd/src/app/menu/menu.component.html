@@ -3,7 +3,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
                 <th scope="col">About</th>
@@ -13,9 +12,8 @@
                 <th scope="col">Delete</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="menuData">
             <tr *ngFor="let i of menuData[0].foodProducts">
-                <td>{{i.id}}</td>
                 <td>{{i.name}}</td>
                 <td>{{i.type}}</td>
                 <td>{{i.about}}</td>

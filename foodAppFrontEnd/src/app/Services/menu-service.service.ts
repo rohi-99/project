@@ -26,4 +26,5 @@ export class MenuServiceService {
   getFoodProductId(id:any){
     return this.http.get(`http://localhost:8080/getFoodProductById/${id}`);
   }
+
 }

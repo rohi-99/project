@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuServiceService } from '../Services/menu-service.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-food-product',
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class AddFoodProductComponent implements OnInit {
 
   body:any;
-  constructor(private menuService:MenuServiceService) { }
+  constructor(private menuService:MenuServiceService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +30,7 @@ export class AddFoodProductComponent implements OnInit {
     }
     this.menuService.addFoodProduct(this.body).subscribe((data)=>{
       console.log(data);
-      
+      this.router.navigate(["menu"]);
     })
   }
 
