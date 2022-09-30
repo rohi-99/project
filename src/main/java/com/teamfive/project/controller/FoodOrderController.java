@@ -33,10 +33,10 @@ public class FoodOrderController {
 		return service.deleteFoodOrder(id);
 	}
 	
-//	@GetMapping("/getbyid/{id}") 
-//	public FoodOrder getFoodOrderById(@PathVariable int id) {
-//		return dao.getFoodOrderById(id);
-//	}
+	@GetMapping("/getFoodOrderById/{id}") 
+	public FoodOrder getFoodOrderById(@PathVariable int id) {
+		return service.findById(id);
+	}
     @GetMapping("findallfoodorder")
 	public List<FoodOrder> findAllFoodOrdr(){
 		return service.findAllFoodOrder();

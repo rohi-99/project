@@ -26,6 +26,10 @@ public class FoodOrderService {
 			return dao.findAllFoodOrder();
 		}
 		
+		public FoodOrder findById(int id) {
+			return dao.getFoodOrderById(id);
+		}
+		
 		public FoodOrder updateFoodOrder(FoodOrder updatedFoodOrder, int id) {
 			FoodOrder foodOrder = dao.getFoodOrderById(id);
 			if(foodOrder != null) {

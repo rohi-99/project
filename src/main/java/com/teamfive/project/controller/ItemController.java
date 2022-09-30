@@ -29,8 +29,8 @@ public class ItemController {
 		return service.saveItem(item);
 	}
 	
-	@DeleteMapping("deleteitem")
-	public String deleteItem(@RequestParam int id) {
+	@DeleteMapping("deleteitem/{id}")
+	public String deleteItem(@PathVariable int id) {
 		return service.deleteItem(id);
 	}
 	

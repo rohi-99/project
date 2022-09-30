@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teamfive.project.dto.FoodProduct;
+import com.teamfive.project.dto.ResponseStructure;
 import com.teamfive.project.dto.User;
 import com.teamfive.project.service.FoodProductService;
 
@@ -39,7 +40,7 @@ public class FoodProductController {
 	}
 	
 	@GetMapping("/getFoodProductById/{id}")
-	public FoodProduct findbyId(@PathVariable int id) {
+	public ResponseStructure<FoodProduct> findbyId(@PathVariable int id) {
 		return service.findbyId(id);
 	}
 	

@@ -1,6 +1,7 @@
 package com.teamfive.project.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.teamfive.project.dto.FoodProduct;
 import com.teamfive.project.dto.User;
 import com.teamfive.project.repository.FoodProductRepository;
+//import com.ty.springbootperson.dto.Person;
 
 @Repository
 public class FoodProductDao {
@@ -26,7 +28,16 @@ public class FoodProductDao {
 	}
 	
 	public FoodProduct getFoodProductById(int id) {
-		return repository.findById(id).get();
+//		return repository.findById(id).get();
+		
+		
+		Optional<FoodProduct> optional = repository.findById(id);
+		if(optional.isPresent()) {
+			return optional.get();
+		}
+		else {
+			return null;
+		}
 	}
 	
 	public List<FoodProduct> findAllFoodProduct(){
