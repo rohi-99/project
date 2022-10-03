@@ -19,4 +19,12 @@ export class UserService {
   addUser(body:any){
     return this.http.post("http://localhost:8080/saveuser",body);
   }
+
+  login(body:any){
+    return this.http.post("http://localhost:8080/login",body);
+  }
+
+  deleteUser(id:any){
+   return this.http.delete(`http://localhost:8080/deleteUser/${id}`); 
+  }
 }

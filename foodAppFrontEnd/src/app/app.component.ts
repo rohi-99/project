@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'foodAppFrontEnd';
+
+  constructor(private router:Router){}
+
+  logout(){
+    localStorage.removeItem('userRole');
+    this.router.navigate(['login']);
+    window.alert("Logout Successfull!");
+
+  }
 }

@@ -14,6 +14,8 @@ import { AddFoodOrderComponent } from './add-food-order/add-food-order.component
 import { StaffDetailComponent } from './staff-detail/staff-detail.component';
 import { StaffUpdateComponent } from './staff-update/staff-update.component';
 import { StaffCreateComponent } from './staff-create/staff-create.component';
+import { LoginComponent } from './login/login.component';
+import { StaffFilterPipe } from './Pipes/staff-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { StaffCreateComponent } from './staff-create/staff-create.component';
     AddFoodOrderComponent,
     StaffDetailComponent,
     StaffUpdateComponent,
-    StaffCreateComponent
+    StaffCreateComponent,
+    LoginComponent,
+    StaffFilterPipe
   ],
   imports: [
     BrowserModule,

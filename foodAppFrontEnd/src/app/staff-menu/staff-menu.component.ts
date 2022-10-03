@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuServiceService } from '../Services/menu-service.service';
 import { OrderServiceService } from '../Services/order-service.service';
 
@@ -16,8 +16,9 @@ export class StaffMenuComponent implements OnInit {
   foodOrder:any;
   foodOrderBody:any;
   itemResponse:any;
+  billDetail:any;
   // temp:any=1;
-  constructor(private menuService:MenuServiceService, private route: ActivatedRoute, private orderService:OrderServiceService) { }
+  constructor(private router: Router, private menuService:MenuServiceService, private route: ActivatedRoute, private orderService:OrderServiceService) { }
 
   ngOnInit(): void {
     this.menuService.getMenu().subscribe((res)=>{
@@ -77,14 +78,29 @@ export class StaffMenuComponent implements OnInit {
         orderCreatedTime: orderTime,
         orderDeliveryTime: deliveryTime,
         customerName: this.foodOrder.customerName,
-        contactNumber: this.foodOrder.contactNumber
+        contactNumber: this.foodOrder.contactNumber,
+        email: this.foodOrder.email
       }
 
 
       this.orderService.updateFoodOrder(this.foodOrderId,this.foodOrderBody).subscribe((res)=>{
         console.log(res);
         
+        this.orderService.getFoodOrderById(this.foodOrderId).subscribe((response)=>{
+          this.billDetail=response;
+          this.orderService.sendEmail(this.billDetail).subscribe((emailResponse)=>{
+            console.log(emailResponse);
+
+            window.alert("Ordered Successfully!");
+            this.router.navigate(["add-foodOrder"]);
+            
+          })
+        })
       })
+
+      
+
+      
 
 
 

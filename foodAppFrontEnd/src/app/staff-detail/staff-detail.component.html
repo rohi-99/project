@@ -6,15 +6,16 @@
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Update</th>
+                <th scope="col">Delete</th>
 
             </tr>
         </thead>
         <tbody *ngIf="result">
-            <tr *ngFor="let i of result">
+            <tr *ngFor="let i of result | staffFilter">
                 <td>{{i.name}}</td>
                 <td>{{i.email}}</td>
                 <td><button class="btn btn-primary" [routerLink]="['/staff-update/',i.id]">Update</button></td>
-                <!-- <td><button class="btn btn-secondary" (click)="deleteProduct(i.id)">Delete</button></td> -->
+                <td><button class="btn btn-secondary" (click)="deleteUser(i.id)">Delete</button></td>
             </tr>
         </tbody>
 

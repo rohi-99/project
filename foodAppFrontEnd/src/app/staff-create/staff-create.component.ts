@@ -9,14 +9,20 @@ import { UserService } from '../Services/user.service';
   styleUrls: ['./staff-create.component.css']
 })
 export class StaffCreateComponent implements OnInit {
-
+  body: any;
   constructor(private userService:UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  addUser(form:NgForm){
-    this.userService.addUser(form.value).subscribe((res)=>{
+  addUser(detail:NgForm){
+    this.body = {
+      name: detail.value.name,
+      email: detail.value.email,
+      password: detail.value.password,
+      role: "staff"
+    }
+    this.userService.addUser(this.body).subscribe((res)=>{
       console.log(res);
       this.router.navigate(["staff-detail"]);
     })

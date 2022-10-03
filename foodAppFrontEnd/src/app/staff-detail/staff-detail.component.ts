@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../Services/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from '../Services/user.service';
 })
 export class StaffDetailComponent implements OnInit {
   result:any;
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -18,6 +19,16 @@ export class StaffDetailComponent implements OnInit {
     })
   }
 
+  deleteUser(id:any){
+    this.userService.deleteUser(id).subscribe((res)=>{
+      console.log(res);
+      this.router.navigate(['staff-detail']);
+     this.userService.getAllStaff().subscribe((data)=>{
+      this.result = data;
+      
+     })
+    })
+  }
 
 
 }
