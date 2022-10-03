@@ -20,9 +20,10 @@ public class UserDao {
 		return repository.save(user);
 	}
 	
-	public void deleteUser(int id) {
+	public User deleteUser(int id) {
 		User user = getUserById(id);
 		repository.delete(user);
+		return user;
 	}
 	
 	public User getUserById(int id) {
@@ -38,6 +39,9 @@ public class UserDao {
 		return repository.save(user);
 		
 	}
+	public User loginUser(String email, String password) {
+	 	return repository.getByEmailAndPassword(email, password);
+	 }
 	
 	
 }

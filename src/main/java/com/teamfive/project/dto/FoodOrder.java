@@ -27,6 +27,7 @@ public class FoodOrder {
 	private String orderDeliveryTime;
 	private String customerName;
 	private String contactNumber;
+	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "foodorder",fetch = FetchType.LAZY)
 	private List<Item> item;
@@ -35,6 +36,14 @@ public class FoodOrder {
 	@JoinColumn
 	private User user;
 	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public int getId() {
 		return id;

@@ -3,9 +3,12 @@ package com.teamfive.project.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.teamfive.project.dao.UserDao;
+import com.teamfive.project.dto.ResponseStructure;
 import com.teamfive.project.dto.User;
 
 @Service
@@ -16,9 +19,8 @@ public class UserService {
 	public User saveUser(User user) {
 	   return dao.saveUser(user);
 	}
-	public String deleteUser(int id) {
-	   dao.deleteUser(id);
-	   return "User "+id+" Deleted";
+	public User deleteUser(int id) {
+	   return dao.deleteUser(id);
 	}
 	public List<User> findAllUser(){
 		return dao.findAllUser();
@@ -35,5 +37,19 @@ public class UserService {
 		}
 	}
 		
+	public ResponseEntity<ResponseStructure<User>> login(String email, String password){
+		ResponseStructure<User> structure = new ResponseStructure<>();
+		User user = dao.loginUser(email, password);
+		if(user!=null) {
+			structure.setStatusCode(HttpStatus.FOUND.value());
+			structure.setMsg(password);
+			structure.setData(user);
+		}else {
+			structure.setStatusCode(HttpStatus.NOT_FOUND.value());
+			structure.setMsg(password);
+			structure.setData(user);
+		}
+		return new ResponseEntity<ResponseStructure<User>>(structure, HttpStatus.OK);
+	}
 		
 }

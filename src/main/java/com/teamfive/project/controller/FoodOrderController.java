@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.teamfive.project.dto.FoodOrder;
+import com.teamfive.project.dto.Item;
 import com.teamfive.project.dto.User;
+import com.teamfive.project.service.EmailSenderService;
 import com.teamfive.project.service.FoodOrderService;
 
 @RestController
@@ -22,6 +24,9 @@ import com.teamfive.project.service.FoodOrderService;
 public class FoodOrderController {
 	@Autowired
 	FoodOrderService service;
+	
+	@Autowired
+	EmailSenderService emailService;
 	
 	@PostMapping("/savefoodorder")
 	public FoodOrder saveFoodOrder(@RequestBody FoodOrder foodOrder) {
@@ -47,4 +52,13 @@ public class FoodOrderController {
 		return service.updateFoodOrder(foodOrder, id);
 		
 	}
+    
+    @PostMapping("sendMail")
+    public void sendEmail(@RequestBody FoodOrder foodOrder) {
+    	String email = foodOrder.getEmail();
+    	String body =  service.emailBody(foodOrder);
+    	System.out.println(body);
+    	emailService.sendSimpleEmail(email, "Bill Details", body);
+    }
+    
 }
