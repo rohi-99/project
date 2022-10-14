@@ -17,6 +17,7 @@ export class AddFoodProductComponent implements OnInit {
   }
 
   addProduct(detail:NgForm){
+    if(detail.value.name && detail.value.availability && detail.value.price){
     console.log(detail.value);
     this.body = {
       name: detail.value.name,
@@ -32,6 +33,10 @@ export class AddFoodProductComponent implements OnInit {
       console.log(data);
       this.router.navigate(["menu"]);
     })
+  }
+  else{
+    window.alert("Please complete the details!")
+  }
   }
 
 }

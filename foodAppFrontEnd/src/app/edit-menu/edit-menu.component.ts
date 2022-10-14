@@ -44,6 +44,7 @@ export class EditMenuComponent implements OnInit {
     }
     this.menuService.updateMenu(this.selectedProduct.id, this.body).subscribe((data) => {
       console.log(data);
+      window.alert("Updated successfully!")
       this.router.navigate(["menu"]);
     })
   }

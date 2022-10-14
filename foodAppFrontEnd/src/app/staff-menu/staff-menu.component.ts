@@ -33,7 +33,7 @@ export class StaffMenuComponent implements OnInit {
   addItem(foodProductId:any,quantity:any){
     // console.log(foodProductId);
     // console.log(quantity.value);
-    
+    if(quantity.value != 0){
     this.menuService.getFoodProductId(foodProductId).subscribe((res)=>{
       
       this.foodProductData=res;
@@ -58,7 +58,11 @@ export class StaffMenuComponent implements OnInit {
     })
     
     
-  }) 
+  })
+    }
+    else{
+      window.alert("Please enter quantity.")
+    }
   }
 
   updateOrder(){
@@ -71,15 +75,21 @@ export class StaffMenuComponent implements OnInit {
 
       let expectedTime = new Date(currentTime.getTime() + 30*60000);
       let deliveryTime = expectedTime.toLocaleTimeString();
+      let totalPrice = this.calculatePrice(this.foodOrder);
+      let totalAmount = (totalPrice + totalPrice*0.05);
 
       this.foodOrderBody ={
         status: "Preparing",
-        totalPrice: this.calculatePrice(this.foodOrder),
+        totalPrice: totalPrice,
+        grandTotal:totalAmount,
         orderCreatedTime: orderTime,
         orderDeliveryTime: deliveryTime,
         customerName: this.foodOrder.customerName,
         contactNumber: this.foodOrder.contactNumber,
-        email: this.foodOrder.email
+        email: this.foodOrder.email,
+        user:{
+          id: localStorage.getItem("userId")
+        }
       }
 
 

@@ -16,6 +16,7 @@ export class StaffCreateComponent implements OnInit {
   }
 
   addUser(detail:NgForm){
+    if(detail.value.name && detail.value.password && detail.value.email){
     this.body = {
       name: detail.value.name,
       email: detail.value.email,
@@ -24,7 +25,13 @@ export class StaffCreateComponent implements OnInit {
     }
     this.userService.addUser(this.body).subscribe((res)=>{
       console.log(res);
+      window.alert("Staff added successfully!")
       this.router.navigate(["staff-detail"]);
+      
     })
+  }
+  else{
+    window.alert("Please fill all the details!")
+  }
   }
 }

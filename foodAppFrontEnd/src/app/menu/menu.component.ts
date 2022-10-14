@@ -23,15 +23,18 @@ export class MenuComponent implements OnInit {
   }
 
   deleteProduct(id:any){
+    if(window.confirm("Selected food product will be deleted! Continue?")){
     this.menuService.deleteMenuData(id).subscribe((response)=>{
       console.log(response);
      this.router.navigate(['menu']);
      this.menuService.getMenu().subscribe((data)=>{
       this.menuData = data;
       console.log("menudata",this.menuData);
+      window.alert("Deleted Successfully!");
       
      })
     })
+  }
   }
 
 }

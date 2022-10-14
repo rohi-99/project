@@ -20,14 +20,17 @@ export class StaffDetailComponent implements OnInit {
   }
 
   deleteUser(id:any){
+    if(window.confirm("Selected staff will be deleted! Continue?")){
     this.userService.deleteUser(id).subscribe((res)=>{
       console.log(res);
       this.router.navigate(['staff-detail']);
      this.userService.getAllStaff().subscribe((data)=>{
       this.result = data;
-      
+      window.alert("Deleted Successfully!");
+
      })
     })
+  }
   }
 
 

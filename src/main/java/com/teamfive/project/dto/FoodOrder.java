@@ -28,6 +28,7 @@ public class FoodOrder {
 	private String customerName;
 	private String contactNumber;
 	private String email;
+	private double grandTotal;
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "foodorder",fetch = FetchType.LAZY)
 	private List<Item> item;
@@ -37,6 +38,14 @@ public class FoodOrder {
 	private User user;
 	
 	
+	public double getGrandTotal() {
+		return grandTotal;
+	}
+
+	public void setGrandTotal(double grandTotal) {
+		this.grandTotal = grandTotal;
+	}
+
 	public String getEmail() {
 		return email;
 	}

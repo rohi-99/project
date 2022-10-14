@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 50px;">
     <h3>Manager's Menu</h3>
     <table class="table">
         <thead>
@@ -19,8 +19,8 @@
                 <td>{{i.about}}</td>
                 <td>{{i.availability}}</td>
                 <td>{{i.price}}</td>
-                <td><button class="btn btn-primary" [routerLink]="['/edit-menu/',i.id]">Update</button></td>
-                <td><button class="btn btn-secondary" (click)="deleteProduct(i.id)">Delete</button></td>
+                <td><button class="btn btn-outline-warning" [routerLink]="['/edit-menu/',i.id]">Update</button></td>
+                <td><button class="btn btn-outline-danger" (click)="deleteProduct(i.id)">Delete</button></td>
             </tr>
         </tbody>
 
@@ -28,5 +28,5 @@
     
 </div>
 <div style="text-align: center;">
-    <button class="btn btn-primary" routerLink="/add-foodProduct">Add New Product</button>
+    <button class="btn btn-info" routerLink="/add-foodProduct">Add New Product</button>
 </div>

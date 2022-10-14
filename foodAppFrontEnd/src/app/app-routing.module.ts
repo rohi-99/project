@@ -13,6 +13,7 @@ import { StaffMenuComponent } from './staff-menu/staff-menu.component';
 import { StaffUpdateComponent } from './staff-update/staff-update.component';
 
 const routes: Routes = [
+  {path:"", component:LoginComponent},
   {path:"menu", component:MenuComponent,canActivate:[AuthGuard]},
   {path:"edit-menu/:id", component:EditMenuComponent},
   {path:"staff-menu/:id", component:StaffMenuComponent},

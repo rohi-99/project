@@ -13,6 +13,7 @@ export class AppComponent {
 
   logout(){
     localStorage.removeItem('userRole');
+    localStorage.removeItem('userId');
     this.router.navigate(['login']);
     window.alert("Logout Successfull!");
 

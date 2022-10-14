@@ -1,5 +1,5 @@
-<div class="container">
-    <h3>Edit Food Product</h3>
+<div class="container" style="margin-top: 50px;">
+    <h3>Edit Staff Details</h3>
     <form *ngIf="selectedUser" #editData="ngForm" (ngSubmit)="editUser(editData)">
         <div class="form-group">
           <label for="name">Name</label>
@@ -23,8 +23,9 @@
           >
           
         </div>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div style="text-align: center;">
+        <button type="submit" class="btn btn-warning">Update</button>
+      </div>
       </form>
 </div>
 

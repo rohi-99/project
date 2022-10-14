@@ -38,6 +38,7 @@ export class StaffUpdateComponent implements OnInit {
     }
     this.userService.updateUser(this.id, this.body).subscribe((data) => {
       console.log(data);
+      window.alert("Updated Successfully");
       this.router.navigate(["staff-detail"]);
     })
   }

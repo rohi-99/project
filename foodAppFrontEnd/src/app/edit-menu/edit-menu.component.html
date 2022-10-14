@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-top: 50px;">
     <h3>Edit Food Product</h3>
     <form *ngIf="selectedProduct" #editData="ngForm" (ngSubmit)="editProduct(editData)">
         <div class="form-group">
@@ -53,7 +53,8 @@
           >
           
         </div>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div style="text-align: center;">
+        <button type="submit" class="btn btn-warning">Update</button>
+      </div>
       </form>
 </div>
